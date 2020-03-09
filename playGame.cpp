@@ -7,8 +7,5 @@
 
 #include "playGame.h"
 
-int main(){
-	cout<<"Hip"<<endl;
-	return 0;
-}
+
 
