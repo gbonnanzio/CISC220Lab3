@@ -21,7 +21,7 @@ int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game,
 
 			findbestspoty(currx-1,curry, *bestx, *besty, &game, oldct);
 		}
-		if(game(currx-1)(curry) == 'X' || game(currx-1)(curry) == '-'){
+		if(game(currx-1)(curry) == 'X'){
 			if(&currcount > oldct){
 				oldct = &currcount;
 				&bestx = currx;
