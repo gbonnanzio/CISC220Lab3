@@ -4,6 +4,11 @@
  *  Created on: Mar 8, 2020
  *      Author: gbonn
  */
-//chloe's comment
 
+#include "playGame.h"
+
+int main(){
+	cout<<"Hip"<<endl;
+	return 0;
+}
 
