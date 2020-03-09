@@ -6,5 +6,5 @@
  */
 
 
-
-
+int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game, int oldct);
+int findbestspot(int currx, int curry,int &bestx,int &besty,GameBoard *game,int oldct);
