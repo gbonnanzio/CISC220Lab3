@@ -12,6 +12,7 @@
 int *currcount = 0;
 int *newx = 0;
 int *newy = 0;
+/*
 int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game, int oldct){
 	&newx = currx;
 	&newy = curry;
@@ -30,3 +31,5 @@ int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game,
 		}
 	}
 }
+*/
+
