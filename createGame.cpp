@@ -16,9 +16,14 @@ void makeBoard2(char arr[], int ct, int size){
 		makeBoard2(arr,ct,size);
 	}
 }
+
 void makeBoard(GameBoard *game, int ct, bool flag){
-	if(!flag){
+	if(flag){
 		game->board = new char*[game->size];
-		//game->board[]
+		if(game->size > 0){
+
+		}
+		makeBoard2(game->board[game->size],ct,game->size);
+		flag = false;
 	}
 }
