@@ -17,7 +17,11 @@ int main(){
 		cout<< charArray[i];
 	}
 	*/
-	cout<< func(3);
+	char myArray[5] = {'c','a','f','e','b'};
+	rxSelectionSort1(myArray,5,0);
+	for(int i = 0; i<5; i++){
+		cout <<myArray[i];
+	}
 	return 0;
 }
 

@@ -15,6 +15,8 @@ using namespace std;
 
 //function declarations
 int func(int k);
+void rxSelectionSort1(char arr[], int len, int indx);
+int rxSelectionSort2(char arr[],int len, int indx,int smllstIndx);
 
 
 
