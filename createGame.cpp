@@ -10,6 +10,11 @@
 
 
 void makeBoard2(char arr[], int ct, int size){
+	/* function takes a character array (each element in a row)
+	 * an int ct that is not used and an int size representing the size of
+	 * the board. Function places a '-' in each element of the array
+	 * returns nothing
+	 */
     if(size > 0){
         arr[size-1] = '-';
         size--;
@@ -18,6 +23,11 @@ void makeBoard2(char arr[], int ct, int size){
 }
 
 void makeBoard(GameBoard *game, int ct, bool flag){
+	/* function takes a pointer to a GameBoard, an int ct and a boolean flag
+	 * flag = true if the board needs to be created for the first time
+	 * function creates the game board and places the first starting pieces
+	 * returns nothing
+	 */
     if(flag){
         game->board = new char*[game->size];
         makeBoard(game,ct,false);
@@ -41,10 +51,57 @@ void makeBoard(GameBoard *game, int ct, bool flag){
 void getSize(int &size){
 	/* Function takes a reference to an int
 		 * and generates a random even number between 6 and 16
-		 * returns nothing.
+		 * returns nothing
 		 */
 		size = rand()%11 + 6;
 		if(size%2!=0){
 			size++;
+	}
+}
+
+
+void printRow(char arr[], int size,int ct, bool flag){
+	/* function takes an array of chars representing a single row
+	 * the size of the array, a ct (indx), and a flag indicating if it is
+	 * the preliminary row (true)
+	 * prints out each element of the array and creates a new line after
+	 *  the last element is printed
+	 * returns nothing
+	 */
+	if(flag){
+		if(ct<size){
+			if(ct == 0){
+				cout << "*\t";
+			}
+			cout<<ct<< "\t";
+			ct++;
+			printRow(arr,size,ct,flag);
+		}
+		else{
+			cout<<endl;
+		}
+	}
+	else{
+		if(ct<size){
+			cout<< arr[ct]<< "\t";
+			ct++;
+			printRow(arr,size,ct,flag);
+		}
+		else{
+			cout<<endl;
+		}
+	}
+}
+void printBoard(GameBoard *game, int ct){
+	if(ct == 0){
+		printRow(game->board[ct],game->size,0,true);
+	}
+	else{
+		cout << ct-1 << "\t";
+		printRow(game->board[ct-1],game->size,0,false);
+	}
+	ct++;
+	if(ct<=game->size){
+		printBoard(game,ct);
 	}
 }

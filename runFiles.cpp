@@ -14,12 +14,7 @@ int main(){
 	testGame -> size = 6;
 	testGame ->totalct = 0;
 	makeBoard(testGame, 0, true);
-	for(int i = 0; i<6; i++){
-		for(int j = 0; j<6; j++){
-			cout<< testGame->board[i][j]<<" ";
-		}
-		cout << endl;
-	}
+	printBoard(testGame,0);
 	/* test problem 1
 	char myArray[5] = {'c','a','f','e','b'};
 	rxSelectionSort1(myArray,5,0);

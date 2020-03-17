@@ -25,5 +25,7 @@ struct GameBoard {
 void makeBoard(GameBoard *game, int ct, bool flag);
 void makeBoard2(char arr[], int ct, int size);
 void getSize(int &size);
+void printRow(char arr[], int size,int ct, bool flag);
+void printBoard(GameBoard *game, int ct);
 
 #endif /* CREATEGAME_H_ */

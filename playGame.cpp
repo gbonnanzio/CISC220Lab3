@@ -6,6 +6,9 @@
  */
 
 #include "playGame.h"
+#include "createGame.h"
 
+char ckwin(GameBoard *game){
+}
 
 
