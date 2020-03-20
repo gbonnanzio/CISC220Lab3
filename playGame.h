@@ -13,7 +13,14 @@
 #include <time.h>
 using namespace std;
 
+#include "createGame.h"
+
 //function declarations
-//bool compplacepiece(GameBoard *game);
+int ckrow(char arr[],char p,int size, int ct, int score);
+void ckwin(GameBoard *game,int ct,int finScore);
+bool compPlacePiece(GameBoard *game);
+int findBestSpot(int currX, int currY, int &bestX, int &bestY, GameBoard *game, int oldCt);
+int findbestspoty(int currX, int currY, int &bestX, int &bestY, GameBoard *game, int oldCt);
+
 
 #endif /* PLAYGAME_H_ */
