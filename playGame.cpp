@@ -69,7 +69,7 @@ bool compPlacePiece(GameBoard *game){
 	else{
 		oppPiece = 'X';
 	}
-	findBestSpot(0,0,playedX,playedY,game);
+	findBestSpot(0,0,playedX,playedY,game,0);
 
 	return true;
 }
@@ -77,16 +77,17 @@ bool compPlacePiece(GameBoard *game){
 int findBestSpot(int currX, int currY, int &bestX, int &bestY, GameBoard *game, int oldCt){
 	/* checks all (x,y) spots and finds best spot to place piece on
 	 * the board. if two spots are tied it will randomly pick one.
-	 * oldCt represents how many pieces will be flipped if bestX and Y is used
+	 * oldCt represents how many pieces will be switched if bestX and Y is used
 	 * The return will be ??
 	 */
+	if(oldCt < findBestSpotY())
 
 	return 0;
 }
 
-int findbestspoty(int currX, int currY, int &bestX, int &bestY, GameBoard *game, int oldCt){
+int findBestSpotY(int currX, int currY, int &bestX, int &bestY, GameBoard *game, int oldCt){
 	/* this function will check each direction to see how many pieces would
-	 * be flipped if placed here
+	 * be switched if placed here
 	 */
 	if(game->board[currX][currY] == game->p){
 		if(game->board[currX+1][currY]==)
