@@ -40,17 +40,19 @@ int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game,
 		return oldct;
 	}
 	findbestspoty(currx, curry + 1, bestx, besty, game, oldct);
-
 }
 
-bool compplacepiece(Gameboard *game){
-	findbestspot(0, 0, 0, 0, game, 0);
+bool compplacepiece(GameBoard *game){
+	int compBestX = 0;
+	int compBestY = 0;
+	int oldct = findbestspot(0, 0, compBestX, compBestY, game, 0);
 	if(oldct == 0){
 		cout << "There are no moves. The computer forfeits their turn." << endl;
 		return false;
 	}
 	else{
-		figureoutflipping(&bestx, &besty, game);
+		figureoutflipping(compBestX, compBestY, game);
+		return true;
 	}
 }
 
