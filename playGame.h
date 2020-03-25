@@ -15,7 +15,7 @@ using namespace std;
 
 #include "createGame.h"
 
-//function declarations
+//function declarationskou
 int ckrow(char arr[],char p,int size, int ct, int score);
 void ckwin(GameBoard *game,int ct,int finScore);
 /*bool compPlacePiece(GameBoard *game);
