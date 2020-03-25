@@ -4,7 +4,7 @@
  *  Created on: Mar 8, 2020
  *      Author: nsamu
  */
-#include "playGame.cpp"
+#include "playGame.h"
 #include "createGame.h"
 
 

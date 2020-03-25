@@ -8,6 +8,7 @@
 #include "playGame.h"
 #include "createGame.h"
 
+
 int ckrow(char arr[],char p,int size, int it, int *ct){
 	/* function takes the current array of a row, a char representing
 	 * the current player an integer size for size of board,
@@ -165,21 +166,21 @@ bool placepieceperson(GameBoard *game){
 	cout << "Pick X Coordinate:";
 	cin >> pickedX;
 	if(pickedX<0 || pickedX>=game->size){
-		cout<< "You have forfeited the turn";
+		cout<< "You have forfeited the turn"<<endl;
 		return false;
 	}
 	cout << "Pick Y Coordinate:";
 	cin>>pickedY;
 	if(pickedY < 0 || pickedY >= game->size){
-		cout << "You have forfeited the turn";
+		cout << "You have forfeited the turn"<<endl;
 		return false;
 	}
 	if(game->board[pickedX][pickedY] != '-'){
-		cout<< "You have forfeited the turn";
+		cout<< "You have forfeited the turn"<<endl;
 		return false;
 	}
 	if(figureoutflipping(pickedX,pickedY,game)==0){
-		cout<< "You have forfeited the turn";
+		cout<< "You have forfeited the turn"<<endl;
 		return false;
 	}
 	else{
