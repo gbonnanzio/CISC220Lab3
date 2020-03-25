@@ -123,7 +123,17 @@ void flipping(int x, int y, int xd,int yd, GameBoard *game, int ct){
 	 * direction occurs
 	 * returns nothing
 	 */
-
+	char oppPiece;
+	if(game->p == 'X'){
+		oppPiece = 'O';
+	}
+	else{
+		oppPiece = 'X';
+	}
+	if(game->board[x][y]==oppPiece){
+		game->board[x][y] = game->p;
+		flipping(x+xd,y+yd,xd,yd,game,ct);
+	}
 }
 int figureoutflipping(int x, int y, int xd, int yd, GameBoard *game){
 
