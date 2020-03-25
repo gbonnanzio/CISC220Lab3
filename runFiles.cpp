@@ -10,6 +10,7 @@
 
 void startGame(GameBoard *game);
 void playGame(bool fp1,bool fp2,GameBoard *game,bool whoplaysfirstflag);
+
 int main() {
 	srand(time(NULL));
 	int size = 0;
@@ -22,6 +23,7 @@ int main() {
 	printBoard(game, 0); // for testing purposes
 	startGame(game);
 }
+
 void playGame(bool fp1,bool fp2,GameBoard *game,bool whoplaysfirstflag) {
 	bool s1 = true;
 	bool s2 = true;
