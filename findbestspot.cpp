@@ -12,6 +12,32 @@
 int *currcount = 0;
 int *newx = 0;
 int *newy = 0;
+
+int findbestspot(int currx, int curry,int &bestx,int &besty,GameBoard *game,int oldct){
+
+
+}
+int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game, int oldct){
+	shouldweflip(currx, curry, -1, -1, &game, ct);
+	shouldweflip(currx, curry, -1,  0, &game, ct);
+	shouldweflip(currx, curry, -1,  1, &game, ct);
+	shouldweflip(currx, curry,  0,  1, &game, ct);
+	shouldweflip(currx, curry,  1,  1, &game, ct);
+	shouldweflip(currx, curry,  1,  0, &game, ct);
+	&currcount += ct;
+	shouldweflip(currx, curry,  1, -1, &game, ct);
+	&currcount += ct;
+	shouldweflip(currx, curry,  0, -1, &game, ct);
+	&currcount += ct;
+
+}
+
+
+
+
+
+
+
 /*
 int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game, int oldct){
 	&newx = currx;
