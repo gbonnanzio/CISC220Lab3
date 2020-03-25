@@ -27,29 +27,38 @@ int ckrow(char arr[],char p,int size, int it, int *ct){
 	}
 }
 
-void ckwin(GameBoard *game,int ct,int finScore){
+char ckwin(GameBoard *game,int ct,int finScore){
 	/* function takes the gameboard and an integer
 	 * counter and determines who has
 	 * the higher score of the two players
 	 * returns nothing but prints the winner
 	 */
+	char oppPiece;
+	if(game->p == 'X'){
+		oppPiece = 'O';
+	}
+	else{
+		oppPiece = 'X';
+	}
+
 	if(ct<game->size){
 		finScore = finScore + ckrow(game->board[ct],game->p,game->size,0,0);
 		ct++;
 		ckwin(game,ct,finScore);
 	}
 	else{
-		if(finScore > ((game->size)^(2))-finScore){
+		int otherScore = (game->size)^(2)-finScore;
+		if(finScore > otherScore){
 			cout << "Player "<< game->p <<"wins!"<<endl;
+			return game->p;
 		}
-		else if(game->p == 'X'){
-			cout<< "Player O wins!"<<endl;
-		}
-		else if(game->p == 'O'){
-			cout<< "Player X wins!"<<endl;
+		else if(otherScore > finScore){
+			cout<< "Player " << oppPiece<< " wins!"<<endl;
+			return oppPiece;
 		}
 		else{
 			cout<< "It's a tie!"<<endl;
+			return 'T';
 		}
 	}
 }
