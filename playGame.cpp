@@ -8,22 +8,23 @@
 #include "playGame.h"
 #include "createGame.h"
 
-int ckrow(char arr[],char p,int size, int ct, int score){
+int ckrow(char arr[],char p,int size, int it, int *ct){
 	/* function takes the current array of a row, a char representing
 	 * the current player an integer size for size of board,
 	 * an int iterator and a running score
 	 * returns the number of pieces belonging to that player
 	 * in that row
 	 */
-	if(ct<size){
-		if(arr[ct]==p){
-			score++;
+	if(it<size){
+		if(arr[it]==p){
+			*ct++;
 		}
-		ct++;
-		ckrow(arr,p,size,ct,score);
+		it++;
+		ckrow(arr,p,size,it,ct);
 	}
+
 	else{
-		return score;
+		return *ct;
 	}
 }
 
@@ -39,7 +40,7 @@ void ckwin(GameBoard *game,int ct,int finScore){
 		ckwin(game,ct,finScore);
 	}
 	else{
-		if(finScore > ((game->size)^2)-finScore){
+		if(finScore > ((game->size)^(2))-finScore){
 			cout << "Player "<< game->p <<"wins!"<<endl;
 		}
 		else if(game->p == 'X'){
@@ -54,45 +55,6 @@ void ckwin(GameBoard *game,int ct,int finScore){
 	}
 }
 
-/*bool compPlacePiece(GameBoard *game){
-	 function to help computer figure out what spot will result in the most
-	 * pieces being flipped. Returns true if pieces were flipped sucessfully
-	 * and false if the player/computer forfeits their turn
-
-
-	int playedX = 0;
-	int playedY = 0;
-	if(game->p == 'X'){
-		char oppPiece = 'O';
-	}
-	else{
-		char oppPiece = 'X';
-	}
-	findBestSpot(0,0,playedX,playedY,game,0);
-
-	return true;
-}
-
-int findBestSpot(int currX, int currY, int &bestX, int &bestY, GameBoard *game, int oldCt){
-	 checks all (x,y) spots and finds best spot to place piece on
-	 * the board. if two spots are tied it will randomly pick one.
-	 * oldCt represents how many pieces will be switched if bestX and Y is used
-	 * The return will be ??
-
-	if(oldCt < findBestSpotY())
-
-	return 0;
-}
-
-int findBestSpotY(int currX, int currY, int &bestX, int &bestY, GameBoard *game, int oldCt){
-	 this function will check each direction to see how many pieces would
-	 * be switched if placed here
-
-	if(game->board[currX][currY] == game->p){
-		if(game->board[currX+1][currY]==)
-	}
-}*/
-
 int shouldweflip(int x, int y, int xd, int yd, GameBoard *game,int ct){
 	/* this function takes the current x and y, the direction we are
 	 * looking at, the GameBoard, and the count of how many pieces will be
@@ -106,18 +68,23 @@ int shouldweflip(int x, int y, int xd, int yd, GameBoard *game,int ct){
 	else{
 		oppPiece = 'X';
 	}
-	if(game->board[x][y]==oppPiece){
-		ct++;
-		shouldweflip(x+xd,y+yd,xd,yd,game,ct);
-	}
-	else if(game->board[x][y]==game->p){
-		return ct;
+	if(x<game->size && x>=0 && y<game->size && y>=0){
+		if(game->board[x][y]==oppPiece){
+			ct++;
+			shouldweflip(x+xd,y+yd,xd,yd,game,ct);
+		}
+		else if(game->board[x][y]==game->p){
+			return ct;
+		}
+		else{
+			return 0;
+		}
 	}
 	else{
 		return 0;
 	}
 }
-void flipping(int x, int y, int xd,int yd, GameBoard *game, int ct){
+void flipping(int x, int y, int xd,int yd, GameBoard *game){
 	/* this function actually flips the pieces on the board
 	 * once it has been determined that flipping in that
 	 * direction occurs
@@ -132,11 +99,55 @@ void flipping(int x, int y, int xd,int yd, GameBoard *game, int ct){
 	}
 	if(game->board[x][y]==oppPiece){
 		game->board[x][y] = game->p;
-		flipping(x+xd,y+yd,xd,yd,game,ct);
+		flipping(x+xd,y+yd,xd,yd,game);
 	}
 }
 
-int figureoutflipping(int x, int y, int xd, int yd, GameBoard *game){
+int figureoutflipping(int x, int y, GameBoard *game){
+	/* function starts at (x,y) and looks in all 8 directions
+	 * to see which pieces are flipped in a single direction
+	 * it then flips those pieces
+	 */
+	int ct = 0;
+	int one = shouldweflip(x, y, -1, -1, game, ct);
+	if(one>0){
+		flipping(x,y,-1,-1,game);
+	}
 
+	int two = shouldweflip(x, y, -1,  0, game, ct);
+	if(two>0){
+		flipping(x,y,-1,0,game);
+	}
+
+	int three = shouldweflip(x, y, -1,  1, game, ct);
+	if(three>0){
+		flipping(x,y,-1,1,game);
+	}
+
+	int four = shouldweflip(x, y,  0,  1, game, ct);
+	if(four>0){
+		flipping(x,y,0,1,game);
+	}
+
+	int five = shouldweflip(x, y,  1,  1, game, ct);
+	if(five>0){
+		flipping(x,y,1,1,game);
+	}
+
+	int six = shouldweflip(x, y,  1,  0, game, ct);
+	if(six>0){
+		flipping(x,y,1,0,game);
+	}
+
+	int seven = shouldweflip(x, y,  1, -1, game, ct);
+	if(seven>0){
+		flipping(x,y,1,-1,game);
+	}
+
+	int eight = shouldweflip(x, y,  0, -1, game, ct);
+	if(eight>0){
+		flipping(x,y,0,-1,game);
+	}
+	return (one + two + three + four + five + six + seven + eight);
 }
 
