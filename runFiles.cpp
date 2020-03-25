@@ -15,6 +15,7 @@ int main(){
 	testGame ->totalct = 0;
 	makeBoard(testGame, 0, true);
 	printBoard(testGame,0);
+
 	/* test problem 1
 	char myArray[5] = {'c','a','f','e','b'};
 	rxSelectionSort1(myArray,5,0);

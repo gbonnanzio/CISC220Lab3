@@ -22,7 +22,6 @@ int ckrow(char arr[],char p,int size, int it, int *ct){
 		it++;
 		ckrow(arr,p,size,it,ct);
 	}
-
 	else{
 		return *ct;
 	}
@@ -149,5 +148,33 @@ int figureoutflipping(int x, int y, GameBoard *game){
 		flipping(x,y,0,-1,game);
 	}
 	return (one + two + three + four + five + six + seven + eight);
+}
+
+bool placepieceperson(GameBoard *game){
+	int pickedX;
+	int pickedY;
+	cout >> "Pick X Coordinate:";
+	cin >> pickedX;
+	if(pickedX<0 || pickedX>=game->size){
+		cout<< "You have forfeited the turn";
+		return false;
+	}
+	cout >> "Pick Y Coordinate:";
+	cin>>pickedY;
+	if(pickedY < 0 || pickedY >= game->size){
+		cout << "You have forfeited the turn";
+		return false;
+	}
+	if(game->board[pickedX][pickedY] != '-'){
+		cout<< "You have forfeited the turn";
+		return false;
+	}
+	if(figureoutflipping(pickedX,pickedY,game)==0){
+		cout<< "You have forfeited the turn";
+		return false;
+	}
+	else{
+		return true;
+	}
 }
 

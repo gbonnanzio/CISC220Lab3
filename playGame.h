@@ -19,5 +19,7 @@ using namespace std;
 int ckrow(char arr[],char p,int size, int ct, int score);
 void ckwin(GameBoard *game,int ct,int finScore);
 int shouldweflip(int x, int y, int xd, int yd, GameBoard *game,int ct);
-
+void flipping(int x, int y, int xd,int yd, GameBoard *game);
+int figureoutflipping(int x, int y, GameBoard *game);
+bool placepieceperson(GameBoard *game);
 #endif /* PLAYGAME_H_ */
