@@ -14,7 +14,7 @@ int findbestspot(int currx, int curry,int &bestx,int &besty,GameBoard *game,int 
 			return oldct;
 	}
 	oldct = findbestspoty(currx, curry, bestx, besty, game, oldct);
-	findbestspot(currx + 1, curry, bestx, besty, game, oldct);
+	return findbestspot(currx + 1, curry, bestx, besty, game, oldct);
 
 }
 int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game, int oldct){
@@ -23,15 +23,15 @@ int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game,
 			return oldct;
 	}
 	if(!(game->board[currx][curry] == 'X' || game->board[currx][curry] == 'O')){
-		ct = shouldweflip(currx, curry, -1, -1, game, ct);
-		ct = shouldweflip(currx, curry, -1,  0, game, ct);
-		ct = shouldweflip(currx, curry, -1,  1, game, ct);
-		ct = shouldweflip(currx, curry,  0,  1, game, ct);
-		ct = shouldweflip(currx, curry,  1,  1, game, ct);
-		ct = shouldweflip(currx, curry,  1,  0, game, ct);
-		ct = shouldweflip(currx, curry,  1, -1, game, ct);
-		ct = shouldweflip(currx, curry,  0, -1, game, ct);
-		cout << ct << endl;
+		int one = shouldweflip(currx, curry, -1, -1, game, ct);
+		int two = shouldweflip(currx, curry, -1,  0, game, ct);
+		int three = shouldweflip(currx, curry, -1,  1, game, ct);
+		int four = shouldweflip(currx, curry,  0,  1, game, ct);
+		int five = shouldweflip(currx, curry,  1,  1, game, ct);
+		int six = shouldweflip(currx, curry,  1,  0, game, ct);
+		int seven = shouldweflip(currx, curry,  1, -1, game, ct);
+		int eight = shouldweflip(currx, curry,  0, -1, game, ct);
+		ct = one + two + three + four + five + six + seven + eight;
 		if(ct >= oldct){
 			bestx = currx;
 			besty = curry;

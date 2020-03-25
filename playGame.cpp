@@ -106,7 +106,6 @@ void flipping(int x, int y, int xd,int yd, GameBoard *game){
 	else{
 		oppPiece = 'X';
 	}
-	cout << oppPiece << endl;
 	if(game->board[x+xd][y+yd]==oppPiece){
 		game->board[x+xd][y+yd] = game->p;
 		flipping(x+xd,y+yd,xd,yd,game);
