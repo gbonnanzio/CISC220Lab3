@@ -18,17 +18,20 @@ int findbestspot(int currx, int curry,int &bestx,int &besty,GameBoard *game,int 
 
 }
 int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game, int oldct){
+	int ct = 0;
 	shouldweflip(currx, curry, -1, -1, &game, ct);
 	shouldweflip(currx, curry, -1,  0, &game, ct);
 	shouldweflip(currx, curry, -1,  1, &game, ct);
 	shouldweflip(currx, curry,  0,  1, &game, ct);
 	shouldweflip(currx, curry,  1,  1, &game, ct);
 	shouldweflip(currx, curry,  1,  0, &game, ct);
-	&currcount += ct;
 	shouldweflip(currx, curry,  1, -1, &game, ct);
-	&currcount += ct;
 	shouldweflip(currx, curry,  0, -1, &game, ct);
-	&currcount += ct;
+	if(ct >= oldct){
+		*bestx = currx;
+		*besty = curry;
+	}
+	findbestspoty(currx, curry + 1, *bestx, *besty, &game, oldct);
 
 }
 
