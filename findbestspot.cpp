@@ -28,8 +28,10 @@ int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game,
 				&bestx = currx;
 				&besty = curry;
 			}
-		}
+
 	}
 }
 */
+
+
 
