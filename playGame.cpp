@@ -118,6 +118,11 @@ int shouldweflip(int x, int y, int xd, int yd, GameBoard *game,int ct){
 	}
 }
 void flipping(int x, int y, int xd,int yd, GameBoard *game, int ct){
+	/* this function actually flips the pieces on the board
+	 * once it has been determined that flipping in that
+	 * direction occurs
+	 * returns nothing
+	 */
 
 }
 int figureoutflipping(int x, int y, int xd, int yd, GameBoard *game){
