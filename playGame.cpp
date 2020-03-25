@@ -121,53 +121,44 @@ int figureoutflipping(int x, int y, GameBoard *game){
 	 */
 	int ct = 0;
 	int one = shouldweflip(x, y, -1, -1, game, ct);
-	cout << one <<endl;
 	if(one>0){
 		flipping(x,y,-1,-1,game);
 	}
 
 	int two = shouldweflip(x, y, -1,  0, game, ct);
-	cout << two <<endl;
 	if(two>0){
 		flipping(x,y,-1,0,game);
 	}
 
 	int three = shouldweflip(x, y, -1,  1, game, ct);
-	cout << three <<endl;
 	if(three>0){
 		flipping(x,y,-1,1,game);
 	}
 
 	int four = shouldweflip(x, y,  0,  1, game, ct);
-	cout << four <<endl;
 	if(four>0){
 		flipping(x,y,0,1,game);
 	}
 
 	int five = shouldweflip(x, y,  1,  1, game, ct);
-	cout << five <<endl;
 	if(five>0){
 		flipping(x,y,1,1,game);
 	}
 
 	int six = shouldweflip(x, y,  1,  0, game, ct);
-	cout << six <<endl;
 	if(six>0){
 		flipping(x,y,1,0,game);
 	}
 
 	int seven = shouldweflip(x, y,  1, -1, game, ct);
-	cout << seven <<endl;
 	if(seven>0){
 		flipping(x,y,1,-1,game);
 	}
 
 	int eight = shouldweflip(x, y,  0, -1, game, ct);
-	cout << eight <<endl;
 	if(eight>0){
 		flipping(x,y,0,-1,game);
 	}
-	cout<< one + two + three + four + five + six + seven + eight << endl;
 	return (one + two + three + four + five + six + seven + eight);
 }
 
