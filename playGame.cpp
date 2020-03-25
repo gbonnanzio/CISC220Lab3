@@ -135,6 +135,7 @@ void flipping(int x, int y, int xd,int yd, GameBoard *game, int ct){
 		flipping(x+xd,y+yd,xd,yd,game,ct);
 	}
 }
+
 int figureoutflipping(int x, int y, int xd, int yd, GameBoard *game){
 
 }
