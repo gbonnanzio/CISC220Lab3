@@ -31,7 +31,7 @@ int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game,
 		*bestx = currx;
 		*besty = curry;
 	}
-	findbestspoty(currx, curry + 1, *bestx, *besty, game, oldct);
+	findbestspoty(currx, curry + 1, bestx, besty, game, oldct);
 	return 0;
 
 }

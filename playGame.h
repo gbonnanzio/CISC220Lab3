@@ -18,9 +18,6 @@ using namespace std;
 //function declarationskou
 int ckrow(char arr[],char p,int size, int ct, int score);
 void ckwin(GameBoard *game,int ct,int finScore);
-/*bool compPlacePiece(GameBoard *game);
-int findBestSpot(int currX, int currY, int &bestX, int &bestY, GameBoard *game, int oldCt);
-int findBestSpotY(int currX, int currY, int &bestX, int &bestY, GameBoard *game, int oldCt);*/
 int shouldweflip(int x, int y, int xd, int yd, GameBoard *game,int ct);
 
 #endif /* PLAYGAME_H_ */
