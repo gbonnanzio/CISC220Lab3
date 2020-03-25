@@ -7,8 +7,6 @@
 #include "playGame.cpp"
 #include "createGame.h"
 
-int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game, int oldct);
-int findbestspot(int currx, int curry,int &bestx,int &besty,GameBoard *game,int oldct);
 
 int findbestspot(int currx, int curry,int &bestx,int &besty,GameBoard *game,int oldct){
 	if(currx + 1 == game-> size){

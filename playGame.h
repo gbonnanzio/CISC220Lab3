@@ -22,4 +22,10 @@ int shouldweflip(int x, int y, int xd, int yd, GameBoard *game,int ct);
 void flipping(int x, int y, int xd,int yd, GameBoard *game);
 int figureoutflipping(int x, int y, GameBoard *game);
 bool placepieceperson(GameBoard *game);
+
+int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game, int oldct);
+int findbestspot(int currx, int curry,int &bestx,int &besty,GameBoard *game,int oldct);
+bool compplacepiece(GameBoard *game);
+
+
 #endif /* PLAYGAME_H_ */

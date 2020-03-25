@@ -80,7 +80,6 @@ void playGame(bool fp1,bool fp2,GameBoard *game,bool whoplaysfirstflag) {
 void startGame(GameBoard *game) {
 	cout << "How many players? (0,1, or 2)" << endl;
 	int numplayers;
-	8
 	cin >> numplayers;
 	if (numplayers == 0) {
 		playGame(false,false,game, true);
@@ -91,7 +90,7 @@ void startGame(GameBoard *game) {
 		playGame(true,false,game,whoplaysfirstflag);
 	}
 	else playGame(true,true,game,true);
-	char w = ckwin(game);
+	char w = ckwin(game,0,0);
 	if (w != 'T') {
 		cout << w << " WON!!!! " << endl;
 	}

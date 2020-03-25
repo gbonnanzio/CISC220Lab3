@@ -153,13 +153,13 @@ int figureoutflipping(int x, int y, GameBoard *game){
 bool placepieceperson(GameBoard *game){
 	int pickedX;
 	int pickedY;
-	cout >> "Pick X Coordinate:";
+	cout << "Pick X Coordinate:";
 	cin >> pickedX;
 	if(pickedX<0 || pickedX>=game->size){
 		cout<< "You have forfeited the turn";
 		return false;
 	}
-	cout >> "Pick Y Coordinate:";
+	cout << "Pick Y Coordinate:";
 	cin>>pickedY;
 	if(pickedY < 0 || pickedY >= game->size){
 		cout << "You have forfeited the turn";
