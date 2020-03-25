@@ -39,7 +39,7 @@ void ckwin(GameBoard *game,int ct,int finScore){
 		ckwin(game,ct,finScore);
 	}
 	else{
-		if(finScore > (game->size)^2-finScore){
+		if(finScore > ((game->size)^2)-finScore){
 			cout << "Player "<< game->p <<"wins!"<<endl;
 		}
 		else if(game->p == 'X'){
