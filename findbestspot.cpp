@@ -5,6 +5,7 @@
  *      Author: nsamu
  */
 #include "playGame.cpp"
+#include "createGame.h"
 
 int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game, int oldct);
 int findbestspot(int currx, int curry,int &bestx,int &besty,GameBoard *game,int oldct);
@@ -42,5 +43,14 @@ int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game,
 
 }
 
-
+bool compplacepiece(Gameboard *game){
+	findbestspot(0, 0, 0, 0, game, 0);
+	if(oldct == 0){
+		cout << "There are no moves. The computer forfeits their turn." << endl;
+		return false;
+	}
+	else{
+		figureoutflipping(&bestx, &besty, game);
+	}
+}
 
