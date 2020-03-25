@@ -79,21 +79,17 @@ int shouldweflip(int x, int y, int xd, int yd, GameBoard *game,int ct){
 	}
 	if(x+xd <game->size && x+xd>=0 && y+yd<game->size && y+yd>=0){
 		if(game->board[x+xd][y+yd]==oppPiece){
-			cout<<"test d"<<endl;
 			ct++;
 			shouldweflip(x+xd,y+yd,xd,yd,game,ct);
 		}
 		else if(game->board[x+xd][y+yd]==game->p && ct>0){
-			cout<<"test a"<<endl;
 			return ct;
 		}
 		else{
-			cout<<"test b"<<endl;
 			return 0;
 		}
 	}
 	else{
-		cout<<"test c"<<endl;
 		return 0;
 	}
 }
@@ -103,7 +99,6 @@ void flipping(int x, int y, int xd,int yd, GameBoard *game){
 	 * direction occurs
 	 * returns nothing
 	 */
-	cout << "test 10" << endl;
 	char oppPiece;
 	if(game->p == 'X'){
 		oppPiece = 'O';
@@ -112,11 +107,11 @@ void flipping(int x, int y, int xd,int yd, GameBoard *game){
 		oppPiece = 'X';
 	}
 	cout << oppPiece << endl;
-	if(game->board[x][y]==oppPiece){
-		cout << "test 6" <<endl;
-		game->board[x][y] = game->p;
+	if(game->board[x+xd][y+yd]==oppPiece){
+		game->board[x+xd][y+yd] = game->p;
 		flipping(x+xd,y+yd,xd,yd,game);
 	}
+	game->board[x][y] = game->p;
 }
 
 int figureoutflipping(int x, int y, GameBoard *game){
@@ -193,17 +188,14 @@ bool placepieceperson(GameBoard *game){
 	}
 	if(game->board[pickedX][pickedY] != '-'){
 		cout<< "You have forfeited the turn"<<endl;
-		cout<< "Test 2"<<endl;
 		return false;
 	}
 	int flips = figureoutflipping(pickedX,pickedY,game);
 	if(flips==0){
 		cout<< "You have forfeited the turn"<<endl;
-		cout<< "Test 1"<<endl;
 		return false;
 	}
 	else{
-		cout<< "test five" <<endl;
 		return true;
 	}
 }
