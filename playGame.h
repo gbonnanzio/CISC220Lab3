@@ -16,7 +16,7 @@ using namespace std;
 
 #include "createGame.h"
 
-//function declarationskou
+//function declaration
 int ckrow(char arr[],char p,int size, int it, int &ct);
 char ckwin(GameBoard *game,int ct,int &finScore);
 int shouldweflip(int x, int y, int xd, int yd, GameBoard *game,int ct);

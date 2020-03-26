@@ -49,7 +49,6 @@ bool compplacepiece(GameBoard *game){
 	int compBestX = 0;
 	int compBestY = 0;
 	int oldct = findbestspot(0, 0, compBestX, compBestY, game, 0);
-	cout << oldct << endl;
 	if(oldct == 0){
 		cout << "There are no moves. The computer forfeits their turn." << endl;
 		return false;
