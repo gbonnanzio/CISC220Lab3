@@ -16,18 +16,14 @@ int ckrow(char arr[],char p,int size, int it, int &ct){
 	 * returns the number of pieces belonging to that player
 	 * in that row
 	 */
-	cout<< "Test d"<<endl;
 	if(it<size){
 		if(arr[it]==p){
-			cout<<"test a"<<endl;
 			ct++;
-			cout<<"test b"<<endl;
 		}
 		it++;
 		ckrow(arr,p,size,it,ct);
 	}
 	else{
-		cout<< "Test c"<<endl;
 		return ct;
 	}
 }
@@ -38,7 +34,6 @@ char ckwin(GameBoard *game,int ct,int &finScore){
 	 * the higher score of the two players
 	 * returns nothing but prints the winner
 	 */
-	cout<< "Test 1"<<endl;
 	char oppPiece;
 	if(game->p == 'X'){
 		oppPiece = 'O';
@@ -47,18 +42,16 @@ char ckwin(GameBoard *game,int ct,int &finScore){
 		oppPiece = 'X';
 	}
 	if(ct<game->size){
-		cout<< "Test 2"<<endl;
-		cout << ct << endl;
 		int counter = 0;
 		int val = ckrow(game->board[ct],game->p,game->size,0,counter);
-		cout << val <<endl;
 		finScore = finScore +val;
 		ct++;
 		ckwin(game,ct,finScore);
 	}
 	else{
-		cout<< "Test 3"<<endl;
 		int otherScore = pow((game->size),2)- (finScore);
+		cout << game->p << " Score:" << finScore << endl;
+		cout << oppPiece << " Score:" << otherScore << endl;
 		if(finScore > otherScore){
 			return game->p;
 		}

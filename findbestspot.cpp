@@ -31,7 +31,12 @@ int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game,
 		int seven = shouldweflip(currx, curry,  1, -1, game, ct);
 		int eight = shouldweflip(currx, curry,  0, -1, game, ct);
 		ct = one + two + three + four + five + six + seven + eight;
-		if(ct >= oldct){
+		if(ct > oldct){
+			bestx = currx;
+			besty = curry;
+			oldct = ct;
+		}
+		if(ct == oldct && rand()%2 == 0){
 			bestx = currx;
 			besty = curry;
 			oldct = ct;
