@@ -2,7 +2,6 @@
  * playGame.h
  *
  *  Created on: Mar 8, 2020
- *      Author: gbonn
  */
 
 #ifndef PLAYGAME_H_
