@@ -105,3 +105,29 @@ void printBoard(GameBoard *game, int ct){
 		printBoard(game,ct);
 	}
 }
+
+int rowCount(char arr[], int size, int it, int &rowCounts){
+	if(it<size){
+		if(arr[it]=='-'){
+			rowCounts++;
+		}
+		it++;
+		rowCount(arr,size,it,rowCounts);
+	}
+	else{
+		return rowCounts;
+	}
+}
+
+void updateCount(GameBoard *game, int ct,int &boardCount){
+	if(ct<game->size){
+		int counter = 0;
+		int val = rowCount(game->board[ct],game->size,0,counter);
+		boardCount = boardCount + val;
+		ct++;
+		updateCount(game,ct,boardCount);
+	}
+	else{
+		game->totalct = (game->size)^2 -boardCount;
+	}
+}
