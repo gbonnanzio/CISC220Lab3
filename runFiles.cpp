@@ -73,7 +73,6 @@ void playGame(bool fp1,bool fp2,GameBoard *game,bool whoplaysfirstflag) {
 	}
 	int myCount = 0;
 	updateCount(game,0,myCount);
-	//cout<< game->totalct << endl;
 	if (s1 == false && s2 == false || game->totalct == game->size *game->size) {
 		cout << "Game over" << endl;
 		printBoard(game,0);

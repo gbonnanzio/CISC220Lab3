@@ -27,7 +27,7 @@ void makeBoard2(char arr[], int ct, int size);
 void getSize(int &size);
 void printRow(char arr[], int size,int ct, bool flag);
 void printBoard(GameBoard *game, int ct);
-int rowCount(char arr[], int size, int it, int &rowCounts);
+int rowCount(char arr[], int size, int it, int dashes);
 void updateCount(GameBoard *game, int ct,int &boardCount);
 
 #endif /* CREATEGAME_H_ */
