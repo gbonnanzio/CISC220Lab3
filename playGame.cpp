@@ -9,31 +9,36 @@
 #include "createGame.h"
 
 
-int ckrow(char arr[],char p,int size, int it, int *ct){
+int ckrow(char arr[],char p,int size, int it, int &ct){
 	/* function takes the current array of a row, a char representing
 	 * the current player an integer size for size of board,
 	 * an int iterator and a running score
 	 * returns the number of pieces belonging to that player
 	 * in that row
 	 */
+	cout<< "Test d"<<endl;
 	if(it<size){
 		if(arr[it]==p){
-			*ct++;
+			cout<<"test a"<<endl;
+			ct++;
+			cout<<"test b"<<endl;
 		}
 		it++;
 		ckrow(arr,p,size,it,ct);
 	}
 	else{
-		return *ct;
+		cout<< "Test c"<<endl;
+		return ct;
 	}
 }
 
-char ckwin(GameBoard *game,int ct,int finScore){
+char ckwin(GameBoard *game,int ct,int &finScore){
 	/* function takes the gameboard and an integer
 	 * counter and determines who has
 	 * the higher score of the two players
 	 * returns nothing but prints the winner
 	 */
+	cout<< "Test 1"<<endl;
 	char oppPiece;
 	if(game->p == 'X'){
 		oppPiece = 'O';
@@ -41,24 +46,26 @@ char ckwin(GameBoard *game,int ct,int finScore){
 	else{
 		oppPiece = 'X';
 	}
-
 	if(ct<game->size){
-		finScore = finScore + ckrow(game->board[ct],game->p,game->size,0,0);
+		cout<< "Test 2"<<endl;
+		cout << ct << endl;
+		int counter = 0;
+		int val = ckrow(game->board[ct],game->p,game->size,0,counter);
+		cout << val <<endl;
+		finScore = finScore +val;
 		ct++;
 		ckwin(game,ct,finScore);
 	}
 	else{
-		int otherScore = (game->size)^(2)-finScore;
+		cout<< "Test 3"<<endl;
+		int otherScore = pow((game->size),2)- (finScore);
 		if(finScore > otherScore){
-			cout << "Player "<< game->p <<"wins!"<<endl;
 			return game->p;
 		}
 		else if(otherScore > finScore){
-			cout<< "Player " << oppPiece<< " wins!"<<endl;
 			return oppPiece;
 		}
 		else{
-			cout<< "It's a tie!"<<endl;
 			return 'T';
 		}
 	}

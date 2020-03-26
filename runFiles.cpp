@@ -92,7 +92,8 @@ void startGame(GameBoard *game) {
 		playGame(true,false,game,whoplaysfirstflag);
 	}
 	else playGame(true,true,game,true);
-	char w = ckwin(game,0,0);
+	int playerScore = 0;
+	char w = ckwin(game,0,playerScore);
 	if (w != 'T') {
 		cout << w << " WON!!!! " << endl;
 	}
