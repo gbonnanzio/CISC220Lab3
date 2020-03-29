@@ -1,14 +1,17 @@
 /*
  * findbestspot.cpp
  *
- *  Created on: Mar 8, 2020
- *      Author: nsamu
+ *files related to finding the best spot to flip for the computer
  */
 #include "playGame.h"
 #include "createGame.h"
 
 
 int findbestspot(int currx, int curry,int &bestx,int &besty,GameBoard *game,int oldct){
+	/* checks all x and y positions on the board and finds the best spot to
+	* place a piece on the board. If two spots are tied, my game randomly chooses between them.
+	* Uses findbestspoty as a helper function
+	*/
 	if(currx == game-> size){
 			return oldct;
 	}
@@ -17,6 +20,12 @@ int findbestspot(int currx, int curry,int &bestx,int &besty,GameBoard *game,int 
 
 }
 int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game, int oldct){
+	/* This is the helper function for findbestspot – for each row in the board. Checks
+	 *each direction to see how many pieces would be flipped if a piece is placed here. It went through the entire row,
+	 *updating the best x location and the best y location and the best count (the oldct) if the current xy square resulted
+	 *in more flips than any previous square (if it tied with the previous best square, it picked randomly
+	 *between the two).
+	 */
 	int ct = 0;
 	if(curry == game-> size){
 			return oldct;
@@ -46,6 +55,17 @@ int findbestspoty(int currx, int curry, int &bestx, int &besty, GameBoard *game,
 }
 
 bool compplacepiece(GameBoard *game){
+	/* This function is used for when the computer is playing as one (or both) of the players. It determines
+	* the location on the board where, if it places its piece, the most other pieces will be flipped. It is not
+	* terribly intelligent – it just picks randomly among the squares in which the most pieces will be flipped.
+	* It calls the function findbestspot to find the best x and y location on the board that
+	* will flip the most pieces. If there are no spots on the board that flip pieces, the function prints
+	* out that the player forfeits their turn and returns false. Otherwise, it calls figureoutflipping to
+	* flip the legal pieces on the board after placing the game piece at location x y It returns true if
+	* a piece was placed successfully, and false if there was nowhere to place a piece that would result
+	* in flipping.
+	**/
+
 	int compBestX = 0;
 	int compBestY = 0;
 	int oldct = findbestspot(0, 0, compBestX, compBestY, game, 0);

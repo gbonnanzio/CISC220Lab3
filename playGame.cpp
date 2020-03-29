@@ -1,8 +1,7 @@
 /*
  * playGame.cpp
  *
- *  Created on: Mar 8, 2020
- *
+ *files related to playing the game
  */
 
 #include "playGame.h"

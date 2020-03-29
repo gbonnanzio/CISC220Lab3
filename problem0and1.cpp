@@ -1,8 +1,6 @@
 /*
  * problem0and1.cpp
  *
- *  Created on: Mar 16, 2020
- *      Author: gbonn
  */
 
 #include "problem0and1.h"

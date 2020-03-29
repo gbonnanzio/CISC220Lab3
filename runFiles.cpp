@@ -1,8 +1,8 @@
 /*
  * runTheGame.cpp
  *
- *  Created on: Mar 8, 2020
- *      Author: gbonn
+ * Code related to running the game
+ * MAIN
  */
 #include "playGame.h"
 #include "createGame.h"
@@ -32,43 +32,53 @@ void playGame(bool fp1,bool fp2,GameBoard *game,bool whoplaysfirstflag) {
 			game->p = 'X';
 			s1 = placepieceperson(game);
 			printBoard(game,0);
+			cout << endl;
 			game->p = 'O';
 			s2 = placepieceperson(game);
 			printBoard(game,0);
+			cout << endl;
 		}
 		else {
 			game->p = 'O';
 			s1 = placepieceperson(game);
 			printBoard(game,0);
+			cout << endl;
 			game->p = 'X';
 			s2 = placepieceperson(game);
 			printBoard(game,0);
+			cout << endl;
 		}
 	}
 	else if (fp1 == false && fp2 == false && (s1 || s2)) {
 		game->p = 'X';
 		s1 = compplacepiece(game);
 		printBoard(game,0);
+		cout << endl;
 		game->p = 'O';
 		s2 = compplacepiece(game);
 		printBoard(game,0);
+		cout << endl;
 	}
 	else {
 		if (whoplaysfirstflag) {
 			game->p = 'X';
 			s1 = placepieceperson(game);
 			printBoard(game,0);
+			cout << endl;
 			game->p = 'O';
 			s2 = compplacepiece(game);
 			printBoard(game,0);
+			cout << endl;
 		}
 		else {
 			game->p = 'X';
 			s1 = compplacepiece(game);
 			printBoard(game,0);
+			cout << endl;
 			game->p = 'O';
 			s2 = placepieceperson(game);
 			printBoard(game,0);
+			cout << endl;
 		}
 	}
 	int myCount = 0;
@@ -76,6 +86,7 @@ void playGame(bool fp1,bool fp2,GameBoard *game,bool whoplaysfirstflag) {
 	if (s1 == false && s2 == false || game->totalct == game->size *game->size) {
 		cout << "Game over" << endl;
 		printBoard(game,0);
+		cout << endl;
 		return;
 	}
 	playGame(fp1,fp2,game,whoplaysfirstflag);
@@ -110,6 +121,7 @@ void startGame(GameBoard *game) {
 		makeBoard(game,0, false);
 		cout << "STARTING OVER" << endl;
 		printBoard(game,0);
+		cout << endl;
 		startGame(game);
 	}
 	else {

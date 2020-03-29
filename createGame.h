@@ -1,8 +1,6 @@
 /*
  * createGame.h
  *
- *  Created on: Mar 8, 2020
- *      Author: gbonn
  */
 
 #ifndef CREATEGAME_H_
