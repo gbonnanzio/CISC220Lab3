@@ -1,6 +1,8 @@
 /*
  * createGame.cpp
  *
+ * Geoffrey Bonnanzio and Nick Samulewicz
+ *
  *  files relating to the creation of the board
  *
  */
@@ -93,6 +95,11 @@ void printRow(char arr[], int size,int ct, bool flag){
 	}
 }
 void printBoard(GameBoard *game, int ct){
+	/* This function prints the current game board
+	 * it takes the game as a parameter and a ct that represents
+	 * the row that you are printing
+	 * returns nothing
+	 */
 	if(ct == 0){
 		printRow(game->board[ct],game->size,0,true);
 	}
@@ -107,6 +114,13 @@ void printBoard(GameBoard *game, int ct){
 }
 
 int rowCount(char arr[], int size, int it, int dashes){
+	/* Function counts how many dashes '-' are in the row
+	 * passed to the function as arr and adds it to
+	 * dashes,  the total number of dashes found in the board
+	 * also takes the size of the board and it the row counter
+	 * returns that total number of dashes found on the board
+	 * thus far
+	 */
 	if(it<size){
 		if(arr[it]=='-'){
 			dashes++;
@@ -120,6 +134,12 @@ int rowCount(char arr[], int size, int it, int dashes){
 }
 
 void updateCount(GameBoard *game, int ct,int &boardCount){
+	/* updates the total number of pieces that have been placed on the
+	 * board after each move. Takes the game, an int ct representing the current
+	 * row and a passed by reference int that represents the total number of pieces
+	 * placed on the board
+	 * returns nothing
+	 */
 	if(ct<game->size){
 		int val = rowCount(game->board[ct],game->size,0,0);
 		boardCount = boardCount + val;

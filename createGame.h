@@ -1,6 +1,10 @@
 /*
  * createGame.h
  *
+ * Geoffrey Bonnanzio and Nick Samulewicz
+ *
+ * functions in this file are related to making and printing the board
+ * defining the GameBoard struct and keeping track of the pieces played
  */
 
 #ifndef CREATEGAME_H_

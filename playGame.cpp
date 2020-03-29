@@ -1,7 +1,9 @@
 /*
  * playGame.cpp
  *
- *files related to playing the game
+ * Geoffrey Bonnanzio and Nick Samulewicz
+ *
+ * files related to playing the game
  */
 
 #include "playGame.h"
@@ -11,7 +13,7 @@
 int ckrow(char arr[],char p,int size, int it, int &ct){
 	/* function takes the current array of a row, a char representing
 	 * the current player an integer size for size of board,
-	 * an int iterator and a running score
+	 * an int iterator for the row and a pass by reference for the running score
 	 * returns the number of pieces belonging to that player
 	 * in that row
 	 */
@@ -28,8 +30,9 @@ int ckrow(char arr[],char p,int size, int it, int &ct){
 }
 
 char ckwin(GameBoard *game,int ct,int &finScore){
-	/* function takes the gameboard and an integer
-	 * counter and determines who has
+	/* function takes the gameboard, an integer
+	 * counter and a pass by reference to the final score
+	 * of that player and determines who has
 	 * the higher score of the two players
 	 * returns nothing but prints the winner
 	 */
@@ -93,7 +96,9 @@ int shouldweflip(int x, int y, int xd, int yd, GameBoard *game,int ct){
 	}
 }
 void flipping(int x, int y, int xd,int yd, GameBoard *game){
-	/* this function actually flips the pieces on the board
+	/* this function takes the current (x,y) position
+	 * the direction we are looking at, and the game itself
+	 * This function actually flips the pieces on the board
 	 * once it has been determined that flipping in that
 	 * direction occurs
 	 * returns nothing
@@ -113,7 +118,7 @@ void flipping(int x, int y, int xd,int yd, GameBoard *game){
 }
 
 int figureoutflipping(int x, int y, GameBoard *game){
-	/* function starts at (x,y) and looks in all 8 directions
+	/* function starts at int(x,y) and looks in all 8 directions
 	 * to see which pieces are flipped in a single direction
 	 * it then flips those pieces
 	 */
@@ -161,6 +166,11 @@ int figureoutflipping(int x, int y, GameBoard *game){
 }
 
 bool placepieceperson(GameBoard *game){
+	/* this function takes the game and asks the user
+	 * to pick the x and y coordinate where they want to
+	 * place their piece and determines if this choice is appropriate or not
+	 * returns true if the move is executed, false otherwise
+	 */
 	int pickedX;
 	int pickedY;
 	cout << "Pick X Coordinate:";

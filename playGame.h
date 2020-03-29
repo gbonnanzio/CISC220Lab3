@@ -1,6 +1,9 @@
 /*
  * playGame.h4
  *
+ * Geoffrey Bonnanzio and Nick Samulewicz
+ *
+ * This header contains files to functions related to operating and running the game
  */
 
 #ifndef PLAYGAME_H_

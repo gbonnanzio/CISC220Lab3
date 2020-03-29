@@ -1,7 +1,10 @@
 /*
  * findbestspot.cpp
  *
- *files related to finding the best spot to flip for the computer
+ * Geoffrey Bonnanzio and Nick Samulewicz
+ *
+ * files related to finding the best spot to flip for the computer
+ * and the computer placing the piece
  */
 #include "playGame.h"
 #include "createGame.h"

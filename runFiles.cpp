@@ -1,7 +1,9 @@
 /*
  * runTheGame.cpp
  *
- * Code related to running the game
+ * Geoffrey Bonnanzio and Nick Samulewicz
+ *
+ * Code related to running the actual game
  * MAIN
  */
 #include "playGame.h"
